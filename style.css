@@ -1,0 +1,32 @@
+button {
+    border-radius: 50%;
+}
+
+.calculator {
+    width: 120px;
+    display: flex;
+    flex-direction: column;
+}
+
+.display {
+    height: 20px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.buttons {
+    display: flex;
+}
+
+.digits {
+    width: 90px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row-reverse;
+    justify-content: space-evenly;
+}
+
+.operators {
+    display: flex;
+    flex-direction: column;
+}

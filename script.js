@@ -26,4 +26,16 @@ function operate(operator, a, b) {
     } else if (operator === "/") {
         return divide(a, b)
     }
-}
+};
+
+const numBtn = document.querySelectorAll('.num-btn');
+const displayPreview = document.querySelector('.display-preview');
+
+let firstValue = '';
+
+numBtn.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+        firstValue += btn.value;
+        displayPreview.textContent = `${firstValue}`;
+    })
+});
