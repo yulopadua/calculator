@@ -1,17 +1,24 @@
 button {
     border-radius: 50%;
+    font-size: 60px;
+    padding: 20px;
+    color: #f8f8f8;
 }
 
 .calculator {
-    width: 120px;
+    width: 350px;
     display: flex;
     flex-direction: column;
 }
 
 .display {
-    height: 20px;
+    height: 60px;
     display: flex;
     justify-content: flex-end;
+}
+
+.result {
+    font-size: 60px;
 }
 
 .buttons {
@@ -19,7 +26,6 @@ button {
 }
 
 .digits {
-    width: 90px;
     display: flex;
     flex-wrap: wrap;
     flex-direction: row-reverse;
@@ -29,4 +35,16 @@ button {
 .operators {
     display: flex;
     flex-direction: column;
+}
+
+.number {
+    background-color: #313131;
+}
+
+.operator, .equal {
+    background-color: #f69906;
+}
+
+.clear {
+    background-color: #a0a0a0;
 }
