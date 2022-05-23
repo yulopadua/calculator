@@ -36,6 +36,7 @@ function clear() {
     storedValue = '';
     firstValue = '';
     operatorValue = '';
+    result = '';
     displayResult.textContent = '';
 }
 
@@ -65,12 +66,19 @@ numberButton.forEach(number => {
 
 operatorButton.forEach(operator => {
     operator.addEventListener('click', () => {
-    
-        firstValue = storedValue;
+        if (firstValue && storedValue) {
+            calculate();
+        }
+
+        if (result) {
+            firstValue = result;
+        } else {
+            firstValue = storedValue;
+        }
+        
         console.log(`First: ${firstValue}`)
 
         operatorValue = operator.value;
-        displayResult.textContent = operatorValue;
         storedValue = '';
     })
 });
