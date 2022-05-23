@@ -1,50 +1,51 @@
-button {
-    border-radius: 50%;
-    font-size: 60px;
-    padding: 20px;
-    color: #f8f8f8;
+* {
+    box-sizing: border-box;
+    font-family: Helvetica, sans-serif;
+    font-weight: normal;
+}
+
+body {
+    padding: 0;
+    margin: 0;
 }
 
 .calculator {
-    width: 350px;
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    min-height: 100vh;
+    grid-template-columns: repeat(4, 100px);
+    grid-template-rows: minmax(120px, auto) repeat(5, 100px);
 }
 
-.display {
-    height: 60px;
-    display: flex;
-    justify-content: flex-end;
+.calculator > button {
+    cursor: pointer;
+    font-size: 2.5rem;
+}
+
+.span-two {
+    grid-column: span 2;
 }
 
 .result {
-    font-size: 60px;
-}
-
-.buttons {
+    /* column 1 to last */
+    grid-column: 1 / -1;  
+    background-color: black;
     display: flex;
-}
-
-.digits {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row-reverse;
-    justify-content: space-evenly;
-}
-
-.operators {
-    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
     flex-direction: column;
+    padding: 10px;
+    word-wrap: break-word;
+    word-break: break-all;
 }
 
-.number {
-    background-color: #313131;
+.result .previous-operand {
+    color: #f6f6f6;
+    font-size: 2rem;
 }
 
-.operator, .equal {
-    background-color: #f69906;
-}
-
-.clear {
-    background-color: #a0a0a0;
+.result .current-operand {
+    color: white;
+    font-size: 2.5rem;
 }
