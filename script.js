@@ -5,13 +5,13 @@ class Calculator {
         this.clear();
     }
 
-     clear() {
+    clear() {
         this.currentOperand = '';
         this.previousOperand = '';
         this.operator = undefined;
     }
     
-     delete() {
+    delete() {
         this.currentOperand = this.currentOperand.toString().slice(0, -1);
     }
 
@@ -23,7 +23,7 @@ class Calculator {
     chooseOperator(operator) {
         if (this.currentOperand === '') return;
         if (this.previousOperand !== '') {
-            this.compute();
+            this.calculate();
         }
         this.operator = operator;
         this.previousOperand = this.currentOperand;
@@ -48,6 +48,11 @@ class Calculator {
                 result = prev * current;
                 break
             case '÷':
+                if (current === 0) {
+                    alert("Can't divide by zero!");
+                    this.clear();
+                    return
+                }
                 result = prev / current;
                 break
             default:
@@ -109,3 +114,39 @@ deleteButton.addEventListener('click', () => {
     calculator.delete();
     calculator.updateDisplay();
 })
+
+window.addEventListener('keydown', handleKeyboardInput)
+
+function handleKeyboardInput(e) {
+    if ((e.key >= 0 && e.key <= 9) || (e.key === '.')) {
+        calculator.appendNumber(e.key);
+        calculator.updateDisplay();
+    }
+        
+    if (e.key === '=' || e.key === 'Enter') {
+        calculator.calculate();
+        calculator.updateDisplay();
+    } 
+
+    if (e.key === 'Backspace') {
+        calculator.delete();
+        calculator.updateDisplay();
+    }
+
+    if (e.key === 'Delete') {
+        calculator.clear();
+        calculator.updateDisplay();
+    }
+
+    if (e.key === '+' || e.key === '-' || e.key === '*' || e.key === '/') {
+        calculator.chooseOperator(convertOperator(e.key));
+        calculator.updateDisplay();
+    }
+}
+
+function convertOperator(keyboardOperator) {
+    if (keyboardOperator === '/') return '÷'
+    if (keyboardOperator === '*') return '×'
+    if (keyboardOperator === '-') return '−'
+    if (keyboardOperator === '+') return '+'
+}
