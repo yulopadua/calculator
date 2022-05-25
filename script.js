@@ -49,8 +49,7 @@ class Calculator {
                 break
             case '÷':
                 if (current === 0) {
-                    alert("Can't divide by zero!");
-                    this.clear();
+                    alert("You can't divide by zero!");
                     return
                 }
                 result = prev / current;

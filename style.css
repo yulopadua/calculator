@@ -25,6 +25,21 @@ body {
 
 .span-two {
     grid-column: span 2;
+    background-color: #9f9f9f;
+}
+
+.del {
+    background-color: #9f9f9f;
+}
+
+.num {
+    background-color: #313131;
+    color: #f6f6f6;
+}
+
+.opr {
+    background-color: #f69906;
+    color: #f6f6f6;
 }
 
 .result {
