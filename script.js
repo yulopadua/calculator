@@ -50,7 +50,7 @@ class Calculator {
             case '÷':
                 if (current === 0) {
                     alert("You can't divide by zero!");
-                    return
+                    return;
                 }
                 result = prev / current;
                 break
@@ -86,7 +86,6 @@ const calculator = new Calculator(previousOperandDisplay, currentOperandDisplay)
 numberButtons.forEach(button => {
     button.addEventListener('click', () => {
         calculator.appendNumber(button.innerText)
-        console.log(button.innerText)
         calculator.updateDisplay()
     })
 })
@@ -94,7 +93,6 @@ numberButtons.forEach(button => {
 operatorButtons.forEach(button => {
     button.addEventListener('click', () => {
         calculator.chooseOperator(button.innerText)
-        console.log(button.innerText)
         calculator.updateDisplay();
     })
 })
